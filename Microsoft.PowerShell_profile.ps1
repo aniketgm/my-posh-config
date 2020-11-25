@@ -18,7 +18,6 @@ Else {
     }
 }
 
-If (Test-Path "${Env:ProgramFiles(x86)}\Notepad++") { New-Alias -Name np -Value "${Env:ProgramFiles(x86)}\Notepad++\notepad++.exe" }
 
 # Chocolatey profile
 $ChocolateyProfile = "$Env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
@@ -146,6 +145,11 @@ function cmdrpro([Switch]$vp) {
 
 # Aliases
 # -------
+
+# Alias to notepad++
+If (Test-Path "${Env:ProgramFiles(x86)}\Notepad++") {
+    New-Alias -Name np -Value "${Env:ProgramFiles(x86)}\Notepad++\notepad++.exe"
+}
 
 # Alias to Beyand Compare 
 If (Test-Path 'C:\Program Files\Beyond Compare 4\BCompare.exe') {
